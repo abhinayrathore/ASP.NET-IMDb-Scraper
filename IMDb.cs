@@ -94,7 +94,7 @@ namespace IMDb_Scraper
         private void parseIMDbPage(string imdbUrl, bool GetExtraInfo)
         {
             string html = getUrlData(imdbUrl+"combined");
-            Id = match(@"<link rel=""canonical"" href=""http://www.imdb.com/title/(tt\d{7})/combined"" />", html);
+            Id = match(@"<link rel=""canonical"" href=""http://www.imdb.com/title/(tt\d{7})/[^\d]*?"" />", html);
             if (!string.IsNullOrEmpty(Id))
             {
                 status = true;
